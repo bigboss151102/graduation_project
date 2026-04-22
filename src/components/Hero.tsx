@@ -100,7 +100,7 @@ export default function Hero() {
           onClick={() => scrollTo('rsvp')}
           className="btn-gold px-10 py-4 rounded-full text-base font-medium tracking-wide"
         >
-          Gửi lời chúc !
+          Gửi lời chúc đến mình !
         </button>
       </motion.div>
 

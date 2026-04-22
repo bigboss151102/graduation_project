@@ -25,7 +25,7 @@ const placeholderColors = [
 
 function GalleryItem({ item, index }: { item: (typeof placeholderImages)[0]; index: number }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-40px' });
+  const inView = useInView(ref, { once: true, margin: '0px' });
 
   return (
     <motion.div
@@ -62,7 +62,7 @@ function GalleryItem({ item, index }: { item: (typeof placeholderImages)[0]; ind
 
 export default function Gallery() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
+  const inView = useInView(ref, { once: true, margin: '0px' });
 
   return (
     <section id="gallery" className="py-28 px-6" style={{ background: '#fafafa' }}>

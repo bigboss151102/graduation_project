@@ -9,7 +9,7 @@ import ScrollArrow from './ScrollArrow';
 
 export default function RSVP() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
+  const inView = useInView(ref, { once: true, margin: '0px' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ name: '', message: '' });
@@ -71,7 +71,7 @@ export default function RSVP() {
     'w-full border rounded-xl px-4 py-3.5 text-sm text-gray-800 placeholder-gray-400 transition-all duration-200 bg-white';
 
   return (
-    <section id="rsvp" className="py-28 px-6" style={{ background: 'linear-gradient(180deg, rgba(210,230,255,0.55) 0%, rgba(195,220,255,0.45) 100%)' }}>
+    <section id="rsvp" className="py-28 px-6" style={{ background: 'linear-gradient(160deg, #ddeaff 0%, #eef4ff 40%, #f5f8ff 100%)', backgroundAttachment: 'fixed' }}>
       <div className="max-w-xl mx-auto">
         {/* Header */}
         <motion.div
@@ -82,10 +82,10 @@ export default function RSVP() {
           className="text-center mb-12"
         >
           <p className="text-xs uppercase tracking-[0.25em] mb-3 font-medium" style={{ color: 'var(--blue)' }}>
-            Bạn có tham dự không?
+            Viết cho mình vài lời nhé
           </p>
           <h2 className="font-playfair text-4xl md:text-5xl font-semibold text-gray-900 mb-4">
-            Tham dự cùng mình nhé?
+            Mỗi lời chúc là một phần kỷ niệm của mình.
           </h2>
         </motion.div>
 
@@ -148,7 +148,7 @@ export default function RSVP() {
               className="btn-gold w-full py-4 rounded-xl text-sm font-medium tracking-wide flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               <Send size={15} />
-              {loading ? 'Đang gửi...' : 'Gửi xác nhận'}
+              {loading ? 'Đang gửi...' : 'Gửi lời chúc'}
             </button>
           </motion.form>
         ) : (

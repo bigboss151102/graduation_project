@@ -14,7 +14,7 @@ const timelineItems = [
 
 function TimelineItem({ item, index }: { item: typeof timelineItems[0]; index: number }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-60px' });
+  const inView = useInView(ref, { once: true, margin: '0px' });
 
   return (
     <motion.div
@@ -52,7 +52,7 @@ function TimelineItem({ item, index }: { item: typeof timelineItems[0]; index: n
 
 export default function AboutMe() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
+  const inView = useInView(ref, { once: true, margin: '0px' });
 
   return (
     <section id="about" className="py-28 px-6" style={{ background: 'rgba(255,255,255,0.15)' }}>

@@ -32,7 +32,7 @@ function pad(n: number) {
 
 function Digit({ value, label, index }: { value: number; label: string; index: number }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-40px' });
+  const inView = useInView(ref, { once: true, margin: '0px' });
 
   return (
     <motion.div
@@ -65,7 +65,7 @@ function Digit({ value, label, index }: { value: number; label: string; index: n
 export default function Countdown() {
   const [time, setTime] = useState<TimeLeft | null>(null);
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
+  const inView = useInView(ref, { once: true, margin: '0px' });
 
   useEffect(() => {
     setTime(calcTimeLeft());

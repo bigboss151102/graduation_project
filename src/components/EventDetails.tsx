@@ -19,7 +19,7 @@ function ZaloIcon() {
 
 export default function EventDetails() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
+  const inView = useInView(ref, { once: true, margin: '0px' });
 
   const calendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=Hoàng+Công+Trọng+Lễ+Tốt+Nghiệp&dates=20260425T010000Z/20260425T060000Z&details=Lễ+tốt+nghiệp+của+Hoàng+Công+Trọng&location=54+Nguyen+Luong+Bang,+Hoa+Khanh+Bac,+Lien+Chieu,+Da+Nang,+Vietnam`;
 

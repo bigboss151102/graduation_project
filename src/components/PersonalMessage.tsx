@@ -50,7 +50,13 @@ export default function PersonalMessage() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-gray-500 text-lg leading-relaxed font-light max-w-2xl mx-auto"
         >
-          Hành trình này không phải đi một mình. Mỗi thầy cô, bạn bè và người thân đã tin tưởng vào mình, tất cả đều là một phần trong cột mốc này. Cảm ơn bạn đã là một phần trong câu chuyện của mình.
+          Hành trình này chưa bao giờ là một mình mình đi qua.
+          <br /><br />
+          Trên từng chặng đường, mình luôn may mắn có thầy cô dìu dắt, bạn bè đồng hành, và gia đình âm thầm ủng hộ phía sau. Mỗi lời động viên, mỗi niềm tin và cả những khoảnh khắc sẻ chia, dù nhỏ thôi đều góp phần tạo nên mình của ngày hôm nay.
+          <br /><br />
+          Cột mốc này không chỉ là kết quả của riêng mình, mà là sự kết tinh của tất cả những tình cảm, sự giúp đỡ và niềm tin mà mọi người đã dành cho mình trong suốt thời gian qua.
+          <br /><br />
+          Cảm ơn bạn, vì đã là một phần trong hành trình và câu chuyện của mình. 💙
         </motion.p>
 
         <motion.p

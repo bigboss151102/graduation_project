@@ -50,7 +50,7 @@ export default function PersonalMessage() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-gray-500 text-lg leading-relaxed font-light max-w-2xl mx-auto"
         >
-          Hành trình này không phải đi một mình. Mỗi thầy cô, bạn bè và người thân đã tin tưởng vào mình — tất cả đều là một phần trong cột mốc này. Cảm ơn bạn đã là một phần trong câu chuyện của mình.
+          Hành trình này không phải đi một mình. Mỗi thầy cô, bạn bè và người thân đã tin tưởng vào mình, tất cả đều là một phần trong cột mốc này. Cảm ơn bạn đã là một phần trong câu chuyện của mình.
         </motion.p>
 
         <motion.p

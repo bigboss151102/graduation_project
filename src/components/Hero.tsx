@@ -76,7 +76,7 @@ export default function Hero() {
         <span style={{ WebkitTextFillColor: 'initial' }}>🎓</span>
         <br />
         <span style={{ fontStyle: 'italic', fontWeight: 400, fontSize: '0.65em' }}>
-          và sẽ thật ý nghĩa nếu bạn có mặt ở đó, cùng mình.
+          và sẽ thật ý nghĩa nếu bạn có mặt ở đó, cùng mình!
         </span>
       </motion.h1>
 

@@ -135,7 +135,7 @@ export default function RSVP() {
                 Bạn có đến không?
               </label>
               <div className="grid grid-cols-2 gap-3">
-                {[{ label: 'Mình sẽ có mặt! 🎉', val: 'yes' }, { label: 'Rất tiếc, mình bận rồi 🫠 ', val: 'no' }].map(({ label, val }) => {
+                {[{ label: 'Mình sẽ có mặt! 🎉', val: 'yes' }, { label: 'Rất tiếc, mình bận rồi 🥺 ', val: 'no' }].map(({ label, val }) => {
                   const selected = form.attendance === val;
                   return (
                     <button

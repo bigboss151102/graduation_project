@@ -12,18 +12,19 @@ export default function RSVP() {
   const inView = useInView(ref, { once: true, margin: '0px' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [form, setForm] = useState({ name: '', message: '' });
-  const [errors, setErrors] = useState({ name: '' });
+  const [form, setForm] = useState({ name: '', attendance: '', message: '' });
+  const [errors, setErrors] = useState({ name: '', attendance: '' });
 
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const newErrors = { name: '' };
+    const newErrors = { name: '', attendance: '' };
     if (!form.name.trim()) newErrors.name = 'Vui lòng nhập họ và tên của bạn.';
-    if (newErrors.name) {
+    if (!form.attendance) newErrors.attendance = 'Vui lòng chọn một option nhé.';
+    if (newErrors.name || newErrors.attendance) {
       setErrors(newErrors);
       return;
     }
-    setErrors({ name: '' });
+    setErrors({ name: '', attendance: '' });
     setLoading(true);
 
     const errors: string[] = [];
@@ -32,6 +33,7 @@ export default function RSVP() {
     try {
       const url = new URL(process.env.NEXT_PUBLIC_GOOGLE_SHEET_URL!);
       url.searchParams.set('name', form.name);
+      url.searchParams.set('attendance', form.attendance);
       url.searchParams.set('message', form.message);
       await fetch(url.toString(), { mode: 'no-cors' });
     } catch (err) {
@@ -47,6 +49,7 @@ export default function RSVP() {
         {
           from_name: form.name,
           name: form.name,
+          attendance: form.attendance === 'yes' ? 'Sẽ có mặt' : 'Bận rồi',
           message: form.message,
           title: 'Lời chúc tốt nghiệp',
           email: '',
@@ -126,6 +129,41 @@ export default function RSVP() {
               )}
             </div>
 
+            {/* Attendance */}
+            <div>
+              <label className="block text-xs uppercase tracking-widest text-gray-400 mb-2 font-medium">
+                Bạn có đến không?
+              </label>
+              <div className="grid grid-cols-2 gap-3">
+                {[{ label: 'Mình sẽ có mặt! 🎉', val: 'yes' }, { label: 'Rất tiếc, mình bận rồi 🫠 ', val: 'no' }].map(({ label, val }) => {
+                  const selected = form.attendance === val;
+                  return (
+                    <button
+                      key={val}
+                      type="button"
+                      onClick={() => {
+                        setForm({ ...form, attendance: val });
+                        if (errors.attendance) setErrors({ ...errors, attendance: '' });
+                      }}
+                      className={`px-4 py-3.5 rounded-xl text-sm font-medium transition-all duration-200 ${selected ? 'btn-gold' : ''}`}
+                      style={!selected ? { border: '1.5px solid #cbd5e1', background: 'white', color: '#6b7280', boxShadow: '0 1px 4px rgba(74,128,240,0.08)' } : {}}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
+              </div>
+              {errors.attendance && (
+                <motion.p
+                  initial={{ opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-red-400 text-xs mt-1.5 flex items-center gap-1"
+                >
+                  <span>⚠</span> {errors.attendance}
+                </motion.p>
+              )}
+            </div>
+
             {/* Message */}
             <div>
               <label className="block text-xs uppercase tracking-widest text-gray-400 mb-2 font-medium">
@@ -168,7 +206,9 @@ export default function RSVP() {
               Cảm ơn bạn, {form.name}!
             </h3>
             <p className="text-gray-400 font-light">
-              Mình rất mong được gặp bạn ở đó. Sự có mặt của bạn là tất cả với mình. 🎓
+              {form.attendance === 'yes'
+                ? 'Mình rất mong được gặp bạn ở đó. Sự có mặt của bạn là tất cả với mình. 🎓'
+                : 'Không sao, mình sẽ nhớ bạn! Cảm ơn vì đã gửi lời chúc đến mình nhé 💙'}
             </p>
           </motion.div>
         )}
